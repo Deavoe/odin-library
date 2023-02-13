@@ -1,0 +1,65 @@
+:root {
+    --bg-color: #f8fafc;
+    --text-color: rgb(0,0,0);
+    font-family: 'Roboto', sans-serif;
+}
+
+/* .dark {
+
+} */
+
+body {
+    background-color: var(--bg-color);
+    display:flex;
+    justify-content: center;
+    height: 300vh;
+}
+
+* {
+    transition: all 0.2s;
+}
+
+/* HEADER HEADER HEADER */
+
+header {
+    background-color: var(--bg-color);
+    position: fixed;
+    z-index: 200;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    top: 0;
+    overflow: hidden;
+    width: 100%;
+    box-shadow: 0 0 12px rgba(0,0,0,.5) ;
+}
+
+header * {
+    z-index: 199;
+    position: relative;
+}
+
+header h1 {
+    font-weight: 600;
+    letter-spacing: .25rem;
+    text-shadow: 0 0 3px rgba(0,0,0,.5) ;
+}
+
+header img {
+    width: 2rem;
+    height: 2rem;
+    /* filter:invert(); */
+}
+
+header > div {
+    display:flex;
+    align-items: center;
+    gap: 1rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+}
+
+.theme,
+.add {
+    cursor: pointer;
+}
