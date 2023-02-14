@@ -17,10 +17,49 @@
             <h1>LIBRARY</h1>
         </div>
         <div>
-            <img class="theme" src="./icons/theme-light.svg">
-            <img class="add" src="./icons/add.svg">
+            <img class="theme" src="./icons/theme-light.svg" alt="Change theme">
+            <img class="add" src="./icons/add.svg" alt="Add book">
         </div>
     </header>
+    <div class="container">
+        <div class="book">
+            <div class="book-content">
+                <p class="book-title">Book Title</p>
+                <p class="book-author">by Author Name</p>
+                <p class="book-pages">Pages: #</p>
+            </div>
+            <div class="book-icons">
+                <img src="./icons/edit.svg" alt="Edit">
+                <img src="./icons/delete.svg" alt="Delete">
+            </div>
+        </div>
+    </div>
+    <form class="hidden" action="./index.html" id="signup" method="post" >  
+        <section>
+            <div class="book-name input-f">
+                <!-- <img class="close-form" src="./icons/close.svg" alt="Close"> -->
+                <label for="book-name" >Title</label>
+                <input id="book-name" placeholder="Book Title" name="book-name" type="text" value="" size="30" maxlength="200" required>
+            </div>
+            <div class="author-name input-f">
+                <label for="author-name" >Author</label>
+                <input id="author-name" placeholder="John Doe" name="author-name" type="text" value="" size="30"  maxlength="200" required>
+            </div>
+            <div class="page-num input-f">
+                <label for="page-num" >Total Pages</label>
+                <input id="page-num" placeholder="1234" name="page-num" type="number" value="" size="30" pattern="^[0-9]+$"  maxlength="5" required>
+            </div>
+            <div class="finish-book input-f" id="finish">
+                <label for="finish-book" >Have you read this book?</label>
+                <input id="finish-book" name="finish-book" type="checkbox" value="" size="30">
+            </div>
+        </section>
+        <div class="form-buttons">
+            <button type="submit">Add Book</button>
+            <button class="cancel-form" type="button">Cancel</button>
+        </div>
+    </form>
+
     <script src="./script.js"></script>
 </body>
 </html>

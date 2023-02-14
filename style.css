@@ -63,3 +63,196 @@ header > div {
 .add {
     cursor: pointer;
 }
+
+/* BOOKS */
+
+.container {
+    margin-top: 7rem;
+    display:grid;
+    grid-template-rows:repeat( auto-fit, minmax(100px, 300px) );
+    grid-template-columns: repeat( auto-fit, minmax(100px, 300px) );
+}
+
+.book {
+    background-color: rgb(255,255,255);
+    border-radius: .5rem;
+    border-left: .5rem solid #000000 ;
+    box-shadow: 2px 2px 8px rgba(0,0,0,.15);
+    padding: 25px 25px;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.12s ease-in-out;
+}
+    .book:hover {
+        border-left: clamp(.5rem,.8vw,.82rem) solid #000000 ;
+        box-shadow: 3px 3px 10px rgba(78, 78, 78, 0.435);
+    }
+
+.book-content {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.book-content * {
+    font-weight: 700;
+    font-size: clamp(16px,5vw,1.5rem) ;
+    color:rgb(0,0,0);
+    padding: 0;
+    margin: 0;
+}
+    .book-title { /* Limit text to three lines */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+    }
+    .book-author { /* Limit text to one line */
+        margin-top: .5rem;
+        font-weight: 600;
+        font-size: 1rem;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        max-width: 28ch;
+        white-space: nowrap;
+    }
+    .book-pages {
+        font-weight: 500;
+        margin-top: 1rem;
+    }
+
+.book-icons {
+    display:flex;
+    /* align-self:flex-end; */
+    justify-content: center;
+    /* align-content: flex-end; */
+    /* margin-right: clamp(4px,70px,100px) ; */
+    /* height: clamp(25px, 50px,50px); */
+    width: clamp(25px, 20%,20% );
+    gap: clamp(10px,20px,20px) ;
+    cursor: pointer;
+}
+    .book-icons * {
+        transition: all 0.2s;
+        z-index: 2;
+    }
+    .book-icons *:hover {
+        scale: 1.33;
+    }
+
+/* FORM */
+
+form {
+    position: fixed;
+    top:25%;
+    background-color: rgb(255,255,255);
+    padding: 2rem 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 6px rgba(0,0,0,.35) ;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    transition: all 0.2s;
+    z-index: 3;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+input:placeholder-shown,
+input {
+    outline: none;
+    border: 1px solid rgb(200,200,200) ;
+    font-size: 1rem;
+    border-radius: 2px;
+    transition: all 0.2s;
+    padding: .5rem;
+}
+    input:focus {
+        box-shadow: 1px 1px 6px rgba(0,0,0,.5) ;
+    }
+    input:invalid {
+        border: 1px solid #b92326;
+    }
+    input:valid {
+        border: 1px solid rgb(110, 190, 110) ;
+    }
+    input:focus:valid {
+        border: 1px solid rgb(99,255,99) ;
+    }
+    input:focus:invalid {
+        border: 1px solid #b92326;
+    }
+
+label {
+    font-size: 1.2rem;
+    letter-spacing: .06rem;
+    /* font-weight: 750; */
+    /* color: rgb(66,66,66); */
+}
+
+.input-f {
+    flex:.75;
+    display:flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form-buttons {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.25rem;
+    width: 100%;
+}
+.form-buttons * {
+    background-color: #0ea5e9;
+    border: none;
+    color: rgb(255,255,255);
+    border-radius: 6px;
+    font-size: 1rem;
+    padding: 1rem 2.5rem;
+    font-weight: 700;
+    box-shadow: 2px 2px 4px rgba(0,0,0,.35) ;
+    cursor: pointer;
+    transition: all 0.225s;
+}
+    .form-buttons *:hover {
+        background-color:  #38bdf8;
+    }
+    .cancel-form {
+        background-color: #f43f5e;
+    }
+    .cancel-form:hover {
+        background-color: #fb7185;
+    }
+
+#finish {
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    align-content: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+    #finish > label {
+        font-size: 1rem;
+    }
+
+.hidden {
+    opacity: 0;
+    left: 100%;
+}
+.no-pointer,
+.hidden * {
+    pointer-events: none;
+}
