@@ -1,22 +1,39 @@
 :root {
+    --form-color: rgb(255,255,255);
     --bg-color: #f8fafc;
     --text-color: rgb(0,0,0);
+    --box-shadow: rgba(0,0,0,.5);
+    --book-shadow: rgba(0,0,0,.15);
+    --book-hover: rgba(78, 78, 78, 0.435);
+    --book-border: rgb(0,0,0);
+    --input-color: rgb(200,200,200) ;
     font-family: 'Roboto', sans-serif;
 }
 
-/* .dark {
+* {
+    transition: all 0.2s;
+}
 
-} */
+.dark {
+    --form-color: #27272a;
+    --bg-color: #18181b;
+    --text-color: rgb(255,255,255);
+    --box-shadow: rgba(255,255,255,.5);
+    --book-shadow: rgba(255,255,255,.15);
+    --book-hover: rgba(78, 78, 78, 0.435);
+    --book-border: rgb(222,222,222);
+    --input-color: rgb(200,200,200) ;
+}
+
+.dark img {
+    filter:invert();
+}
 
 body {
     background-color: var(--bg-color);
     display:flex;
     justify-content: center;
     height: 300vh;
-}
-
-* {
-    transition: all 0.2s;
 }
 
 /* HEADER HEADER HEADER */
@@ -31,7 +48,8 @@ header {
     top: 0;
     overflow: hidden;
     width: 100%;
-    box-shadow: 0 0 12px rgba(0,0,0,.5) ;
+    box-shadow: 0 0 12px var(--box-shadow) ;
+    color: var(--text-color);
 }
 
 header * {
@@ -42,7 +60,7 @@ header * {
 header h1 {
     font-weight: 600;
     letter-spacing: .25rem;
-    text-shadow: 0 0 3px rgba(0,0,0,.5) ;
+    text-shadow: 0 0 3px var(--box-shadow) ;
 }
 
 header img {
@@ -69,15 +87,18 @@ header > div {
 .container {
     margin-top: 7rem;
     display:grid;
-    grid-template-rows:repeat( auto-fit, minmax(100px, 300px) );
-    grid-template-columns: repeat( auto-fit, minmax(100px, 300px) );
+    grid-template-rows:repeat( auto-fill, minmax(300px, 1fr) );
+    grid-template-columns: repeat( auto-fill, minmax(100px, 250px) );
+    gap: 20px;
+    width: 100%;
+    justify-content: center;
 }
 
 .book {
-    background-color: rgb(255,255,255);
+    background-color: var(--form-color);
     border-radius: .5rem;
-    border-left: .5rem solid #000000 ;
-    box-shadow: 2px 2px 8px rgba(0,0,0,.15);
+    border-left: .5rem solid var(--book-border) ;
+    box-shadow: 2px 2px 8px var(--book-shadow); 
     padding: 25px 25px;
     margin: 0;
     display: flex;
@@ -87,8 +108,8 @@ header > div {
     transition: all 0.12s ease-in-out;
 }
     .book:hover {
-        border-left: clamp(.5rem,.8vw,.82rem) solid #000000 ;
-        box-shadow: 3px 3px 10px rgba(78, 78, 78, 0.435);
+        border-left: clamp(.5rem,.8vw,.82rem) solid var(--book-border) ;
+        box-shadow: 3px 3px 10px var(--book-hover);
     }
 
 .book-content {
@@ -97,24 +118,26 @@ header > div {
     align-items: center;
     justify-content: center;
 }
-.book-content * {
-    font-weight: 700;
-    font-size: clamp(16px,5vw,1.5rem) ;
-    color:rgb(0,0,0);
-    padding: 0;
-    margin: 0;
-}
-    .book-title { /* Limit text to three lines */
+    .book-content * {
+        font-weight: 600;
+        font-size: clamp(12px,5vw,1rem) ;
+        color:var(--text-color);
+        padding: 0;
+        margin: 0;
+    }
+     .book-title { /* Limit text to three lines */
+        /* font-size: clamp(16px,100%,1.5rem) ; */
         overflow: hidden;
         text-overflow: ellipsis;
         display: -webkit-box;
         -webkit-line-clamp: 3;
         -webkit-box-orient: vertical;
+        max-width:23ch;
+        word-wrap: break-word;
     }
     .book-author { /* Limit text to one line */
         margin-top: .5rem;
-        font-weight: 600;
-        font-size: 1rem;
+        font-weight: 500;
         overflow: hidden;
         text-overflow: ellipsis;
         max-width: 28ch;
@@ -127,11 +150,7 @@ header > div {
 
 .book-icons {
     display:flex;
-    /* align-self:flex-end; */
     justify-content: center;
-    /* align-content: flex-end; */
-    /* margin-right: clamp(4px,70px,100px) ; */
-    /* height: clamp(25px, 50px,50px); */
     width: clamp(25px, 20%,20% );
     gap: clamp(10px,20px,20px) ;
     cursor: pointer;
@@ -149,10 +168,10 @@ header > div {
 form {
     position: fixed;
     top:25%;
-    background-color: rgb(255,255,255);
+    background-color: var(--form-color);
     padding: 2rem 2rem;
     border-radius: 1rem;
-    box-shadow: 0 0 6px rgba(0,0,0,.35) ;
+    box-shadow: 0 0 6px var(--box-shadow) ;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -160,6 +179,7 @@ form {
     gap: 2rem;
     transition: all 0.2s;
     z-index: 3;
+    color: var(--text-color);
 }
 
 section {
@@ -171,14 +191,14 @@ section {
 input:placeholder-shown,
 input {
     outline: none;
-    border: 1px solid rgb(200,200,200) ;
+    border: 1px solid var(--input-color) ;
     font-size: 1rem;
     border-radius: 2px;
     transition: all 0.2s;
     padding: .5rem;
 }
     input:focus {
-        box-shadow: 1px 1px 6px rgba(0,0,0,.5) ;
+        box-shadow: 1px 1px 6px var(--box-shadow) ;
     }
     input:invalid {
         border: 1px solid #b92326;
