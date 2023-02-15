@@ -22,18 +22,8 @@
         </div>
     </header>
     <div class="container">
-        <div class="book">
-            <div class="book-content">
-                <p class="book-title">Book Title</p>
-                <p class="book-author">by Author Name</p>
-                <p class="book-pages">Pages: #</p>
-            </div>
-            <div class="book-icons">
-                <img src="./icons/edit.svg" alt="Edit">
-                <img src="./icons/delete.svg" alt="Delete">
-            </div>
-        </div>
-    </div>
+
+    </div> 
     <form class="hidden" action="./index.html" id="signup" method="post" >  
         <section>
             <div class="book-name input-f">
@@ -47,11 +37,11 @@
             </div>
             <div class="page-num input-f">
                 <label for="page-num" >Total Pages</label>
-                <input id="page-num" placeholder="1234" name="page-num" type="number" value="" size="30" pattern="^[0-9]+$"  maxlength="5" required>
+                <input id="page-num" placeholder="1234" name="page-num" type="number" value="" size="30" pattern="^[0-9]+$"  oninput="this.value=this.value.slice(0,5)" required>
             </div>
-            <div class="finish-book input-f" id="finish">
-                <label for="finish-book" >Have you read this book?</label>
-                <input id="finish-book" name="finish-book" type="checkbox" value="" size="30">
+            <div class="finish input-f" id="finish">
+                <label for="finish" >Have you read this book?</label>
+                <input id="finish" name="finish" type="checkbox" value="yes" size="30">
             </div>
         </section>
         <div class="form-buttons">
@@ -63,3 +53,17 @@
     <script src="./script.js"></script>
 </body>
 </html>
+
+        <!-- <div class="book" data-indexNum="1">
+            <div class="book-content">
+                <p class="book-title">Book Title</p>
+                <p class="book-author">by Author Name</p>
+                <p class="book-pages">Pages: #</p>
+                <p class="book-finish">( In Progress )</p>
+            </div>
+            <div class="book-icons">
+                <img class="complete" src="./icons/finish.svg" alt="Finish">
+                <img class="edit" src="./icons/edit.svg" alt="Edit">
+                <img class="delete" src="./icons/delete.svg" alt="Delete">
+            </div>
+        </div>-->

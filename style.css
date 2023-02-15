@@ -143,9 +143,17 @@ header > div {
         max-width: 28ch;
         white-space: nowrap;
     }
+    .book-finish,
     .book-pages {
         font-weight: 500;
         margin-top: 1rem;
+        transition: all 0.5s;
+    }
+    .book-complete {
+        font-size: 1.1rem;
+        color: rgb(75, 190, 75);
+        text-shadow: 0 1px var(--box-shadow) ;
+        /* font-weight: 600; */
     }
 
 .book-icons {
