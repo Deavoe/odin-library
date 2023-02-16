@@ -125,7 +125,7 @@ header > div {
         padding: 0;
         margin: 0;
     }
-     .book-title { /* Limit text to three lines */
+    .book-title { /* Limit text to three lines */
         /* font-size: clamp(16px,100%,1.5rem) ; */
         overflow: hidden;
         text-overflow: ellipsis;
@@ -140,9 +140,18 @@ header > div {
         font-weight: 500;
         overflow: hidden;
         text-overflow: ellipsis;
-        max-width: 28ch;
+        max-width: 20ch;
         white-space: nowrap;
     }
+    /* .book-title:hover,
+    .book-author:hover {
+        position: relative;
+        background-color: var(--form-color);
+        z-index: 5;
+        overflow: unset;
+        white-space: unset;
+        text-overflow: unset;
+    } */
     .book-finish,
     .book-pages {
         font-weight: 500;
@@ -264,7 +273,7 @@ label {
         background-color: #fb7185;
     }
 
-#finish {
+#finishI {
     align-self: center;
     display: flex;
     flex-direction: row;
@@ -272,7 +281,7 @@ label {
     justify-content: center;
     gap: 0.5rem;
 }
-    #finish > label {
+    #finishI > label {
         font-size: 1rem;
     }
 
